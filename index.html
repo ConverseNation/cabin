@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0c10" />
+  <meta name="description" content="Cabin — read-only vehicle status" />
+  <title>Cabin — Vehicle Status</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="banner" role="status">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+      </svg>
+      View only — cannot control the vehicle
+    </div>
+    <p class="legal-note">Cabin is an independent status mock. Not affiliated with any automaker.</p>
+    <header class="header">
+      <div class="brand">
+        <div class="brand-name" id="vehicle-name">Cabin</div>
+        <div class="brand-sub" id="vehicle-model">Loading…</div>
+      </div>
+      <div class="status-pill" id="state-pill">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="state-text">…</span>
+      </div>
+    </header>
+    <div class="live-bar">
+      <span class="live-dot" id="live-status">Connecting…</span>
+      <span>Poll 3s</span>
+    </div>
+    <main class="sections">
+      <section id="section-overview" class="section active" aria-label="Overview"></section>
+      <section id="section-charge" class="section" aria-label="Charge"></section>
+      <section id="section-climate" class="section" aria-label="Climate"></section>
+      <section id="section-security" class="section" aria-label="Security"></section>
+      <section id="section-software" class="section" aria-label="Software"></section>
+      <section id="section-location" class="section" aria-label="Location"></section>
+      <section id="section-history" class="section" aria-label="History"></section>
+    </main>
+    <nav class="nav" aria-label="Main"><div class="nav-inner" id="nav-inner"></div></nav>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
