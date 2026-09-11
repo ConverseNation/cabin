@@ -1,0 +1,81 @@
+{
+  "vehicle": {
+    "name": "Cabin Y",
+    "model": "Performance Crossover",
+    "vin_suffix": "A7F2",
+    "color": "Solid Black",
+    "wheels": "21\" Turbine",
+    "odometer_mi": 18427.3,
+    "state": "parked",
+    "last_seen": "2026-09-11T21:26:00Z"
+  },
+  "battery": {
+    "percent": 72,
+    "range_mi": 218,
+    "rated_range_mi": 303,
+    "usable_kwh": 57.4,
+    "pack_kwh": 79.5,
+    "charging": false,
+    "charge_limit_percent": 80,
+    "charge_amps": 32,
+    "charge_rate_mph": 0,
+    "time_to_full_min": null,
+    "power_kw": -0.3,
+    "preconditioning": false,
+    "heater_on": false
+  },
+  "climate": {
+    "inside_f": 72.4,
+    "outside_f": 68.1,
+    "set_temp_f": 70,
+    "is_climate_on": false,
+    "fan_status": 0,
+    "seat_heater_left": 0,
+    "seat_heater_right": 0,
+    "defrost": false,
+    "is_auto": true
+  },
+  "security": {
+    "locked": true,
+    "sentry_mode": true,
+    "doors_open": false,
+    "frunk_open": false,
+    "trunk_open": false,
+    "windows_closed": true,
+    "alarm": false,
+    "valet_mode": false,
+    "speed_limit_mode": false
+  },
+  "location": {
+    "lat": 30.2672,
+    "lon": -97.7431,
+    "heading": 142,
+    "address": "Downtown · Austin, TX",
+    "speed_mph": 0,
+    "shift_state": "P"
+  },
+  "software": {
+    "version": "2026.26.8",
+    "build": "26.8.3",
+    "status": "up_to_date",
+    "download_percent": 100,
+    "install_percent": null,
+    "scheduled": null,
+    "release_notes": "Cabin Assist refinements · Battery thermal improvements · UI polish"
+  },
+  "tires": {
+    "fl_psi": 42,
+    "fr_psi": 42,
+    "rl_psi": 40,
+    "rr_psi": 40,
+    "recommended_psi": 42
+  },
+  "history": [
+    {"id": "h1", "ts": "2026-09-11T14:22:00Z", "type": "drive", "title": "Home → Office", "detail": "12.4 mi · 28 min · 4% used"},
+    {"id": "h2", "ts": "2026-09-11T08:05:00Z", "type": "charge", "title": "Overnight charge", "detail": "48% → 80% · 3.2 h · Level 2"},
+    {"id": "h3", "ts": "2026-09-10T19:40:00Z", "type": "sentry", "title": "Sentry event", "detail": "Motion near driver door · Cleared"},
+    {"id": "h4", "ts": "2026-09-10T17:15:00Z", "type": "drive", "title": "Office → Home", "detail": "13.1 mi · 34 min · 5% used"},
+    {"id": "h5", "ts": "2026-09-09T22:10:00Z", "type": "software", "title": "Update installed", "detail": "2026.26.8 · Parked overnight"},
+    {"id": "h6", "ts": "2026-09-09T12:00:00Z", "type": "climate", "title": "Cabin precondition", "detail": "Cool to 70°F · 12 min"}
+  ]
+}
