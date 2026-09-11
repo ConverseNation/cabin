@@ -32,15 +32,173 @@
       <span>Poll 3s</span>
     </div>
     <main class="sections">
-      <section id="section-overview" class="section active" aria-label="Overview"></section>
-      <section id="section-charge" class="section" aria-label="Charge"></section>
-      <section id="section-climate" class="section" aria-label="Climate"></section>
-      <section id="section-security" class="section" aria-label="Security"></section>
-      <section id="section-software" class="section" aria-label="Software"></section>
-      <section id="section-location" class="section" aria-label="Location"></section>
-      <section id="section-history" class="section" aria-label="History"></section>
+      <section id="section-overview" class="section active" aria-label="Overview">
+        <div class="card">
+          <div class="battery-hero">
+            <div class="ring-wrap" aria-hidden="true">
+              <svg viewBox="0 0 200 200">
+                <circle class="ring-track" cx="100" cy="100" r="85" />
+                <circle class="ring-fill" id="battery-ring" cx="100" cy="100" r="85" />
+              </svg>
+              <div class="ring-center">
+                <div class="ring-pct"><span id="ov-pct">—</span><span class="ring-unit">%</span></div>
+              </div>
+            </div>
+            <div class="ring-range">
+              <div class="mi"><span id="ov-range">—</span><span>mi</span></div>
+              <div class="sub">Estimated range · <span id="ov-power">—</span></div>
+            </div>
+          </div>
+          <div class="icon-status">
+            <div class="icon-chip off" id="chip-lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span class="chip-lbl">Lock</span></div>
+            <div class="icon-chip off" id="chip-sentry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="chip-lbl">Sentry</span></div>
+            <div class="icon-chip off" id="chip-charge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg><span class="chip-lbl">Charge</span></div>
+            <div class="icon-chip off" id="chip-climate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></svg><span class="chip-lbl">Climate</span></div>
+          </div>
+        </div>
+        <p class="section-title">Quick stats</p>
+        <div class="grid-3">
+          <div class="stat-tile"><div class="val"><span id="ov-inside">—</span>°</div><div class="lbl">Inside</div></div>
+          <div class="stat-tile"><div class="val"><span id="ov-outside">—</span>°</div><div class="lbl">Outside</div></div>
+          <div class="stat-tile"><div class="val" style="font-size:1rem"><span id="ov-odo">—</span></div><div class="lbl">Miles</div></div>
+        </div>
+      </section>
+      <section id="section-charge" class="section" aria-label="Charge">
+        <div class="card">
+          <div class="card-row"><span class="card-label">Battery</span><span class="card-value" id="ch-pct">—</span></div>
+          <div class="bar-track"><div class="bar-fill" id="ch-bar" style="width:0%"></div></div>
+          <div class="divider"></div>
+          <div class="grid-2">
+            <div><div class="card-label">Range</div><div class="card-value sm" id="ch-range">—</div></div>
+            <div><div class="card-label">Rated</div><div class="card-value sm" id="ch-rated">—</div></div>
+            <div><div class="card-label">Usable</div><div class="card-value sm" id="ch-usable">—</div></div>
+            <div><div class="card-label">Power</div><div class="card-value sm" id="ch-power">—</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-row"><span class="card-label">Status</span><span class="card-value sm" id="ch-status">—</span></div>
+          <div class="divider"></div>
+          <div class="card-row" style="margin-bottom:8px"><span class="card-label">Charge limit</span><span class="card-value sm" id="ch-limit">—</span></div>
+          <div class="bar-track" style="opacity:0.5"><div class="bar-fill" id="ch-limit-bar" style="width:0%;background:var(--text-mute)"></div></div>
+          <div class="divider"></div>
+          <div class="grid-2">
+            <div><div class="card-label">Amps</div><div class="card-value sm" id="ch-amps">—</div></div>
+            <div><div class="card-label">Rate</div><div class="card-value sm" id="ch-rate">—</div></div>
+            <div><div class="card-label">Time to limit</div><div class="card-value sm" id="ch-ttf">—</div></div>
+          </div>
+        </div>
+        <p class="section-title">Controls</p>
+        <div class="ctrl-grid">
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Start charge</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Stop charge</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Set limit</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Open port</button>
+        </div>
+      </section>
+      <section id="section-climate" class="section" aria-label="Climate">
+        <div class="card">
+          <div class="temp-display">
+            <div class="temp-big"><span id="cl-inside">—</span><span>°F</span></div>
+            <div class="temp-set">Set <span id="cl-set">—</span>°F · Outside <span id="cl-outside">—</span>°F</div>
+          </div>
+          <div class="divider"></div>
+          <div class="grid-2">
+            <div><div class="card-label">Climate</div><div class="card-value sm" id="cl-status">—</div></div>
+            <div><div class="card-label">Mode</div><div class="card-value sm" id="cl-auto">—</div></div>
+            <div><div class="card-label">Fan</div><div class="card-value sm" id="cl-fan">—</div></div>
+            <div><div class="card-label">Defrost</div><div class="card-value sm" id="cl-defrost">—</div></div>
+            <div><div class="card-label">Seat L</div><div class="card-value sm" id="cl-seat-l">—</div></div>
+            <div><div class="card-label">Seat R</div><div class="card-value sm" id="cl-seat-r">—</div></div>
+          </div>
+        </div>
+        <p class="section-title">Controls</p>
+        <div class="ctrl-grid">
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Climate on</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Climate off</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Defrost</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Seats</button>
+        </div>
+      </section>
+      <section id="section-security" class="section" aria-label="Security">
+        <div class="card">
+          <div class="grid-2">
+            <div><div class="card-label">Doors</div><div class="card-value sm" id="sec-locked">—</div></div>
+            <div><div class="card-label">Sentry</div><div class="card-value sm" id="sec-sentry">—</div></div>
+            <div><div class="card-label">Door status</div><div class="card-value sm" id="sec-doors">—</div></div>
+            <div><div class="card-label">Windows</div><div class="card-value sm" id="sec-windows">—</div></div>
+            <div><div class="card-label">Frunk</div><div class="card-value sm" id="sec-frunk">—</div></div>
+            <div><div class="card-label">Trunk</div><div class="card-value sm" id="sec-trunk">—</div></div>
+            <div><div class="card-label">Alarm</div><div class="card-value sm" id="sec-alarm">—</div></div>
+            <div><div class="card-label">Valet</div><div class="card-value sm" id="sec-valet">—</div></div>
+          </div>
+        </div>
+        <p class="section-title">Tire pressure</p>
+        <div class="card">
+          <div class="tire-grid">
+            <div class="tire"><div class="psi" id="tire-fl">—</div><div class="pos">FL psi</div></div>
+            <div class="tire"><div class="psi" id="tire-fr">—</div><div class="pos">FR psi</div></div>
+            <div class="tire"><div class="psi" id="tire-rl">—</div><div class="pos">RL psi</div></div>
+            <div class="tire"><div class="psi" id="tire-rr">—</div><div class="pos">RR psi</div></div>
+          </div>
+        </div>
+        <p class="section-title">Controls</p>
+        <div class="ctrl-grid">
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Lock</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Unlock</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Sentry</button>
+          <button type="button" class="ctrl-btn" disabled data-tooltip="Read only">Flash</button>
+        </div>
+      </section>
+      <section id="section-software" class="section" aria-label="Software">
+        <div class="card">
+          <div class="card-row"><span class="card-label">Version</span><span class="card-value mono" id="sw-version">—</span></div>
+          <div class="divider"></div>
+          <div class="card-row" style="margin-bottom:12px"><span class="card-label">Build</span><span class="card-value sm mono" id="sw-build">—</span></div>
+          <div class="card-row"><span class="card-label">Status</span><span class="sw-badge" id="sw-status">—</span></div>
+          <div class="divider"></div>
+          <div class="card-label" style="margin-bottom:6px">Notes</div>
+          <p class="card-value sm" id="sw-notes" style="font-weight:400;color:var(--text-dim)">—</p>
+        </div>
+        <p class="section-title">Vehicle</p>
+        <div class="card">
+          <div class="grid-2">
+            <div><div class="card-label">Model</div><div class="card-value sm" id="sw-model">—</div></div>
+            <div><div class="card-label">Color</div><div class="card-value sm" id="sw-color">—</div></div>
+            <div style="grid-column:1/-1"><div class="card-label">Wheels</div><div class="card-value sm" id="sw-wheels">—</div></div>
+          </div>
+        </div>
+      </section>
+      <section id="section-location" class="section" aria-label="Location">
+        <div class="map-mock" aria-label="Map placeholder">
+          <div class="map-pin"><div class="pin-dot"></div><div class="pin-lbl" id="map-label">—</div></div>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="card-label">Address</div>
+          <div class="card-value sm" id="loc-address" style="margin-bottom:12px">—</div>
+          <div class="grid-2">
+            <div><div class="card-label">Coords</div><div class="card-value sm mono" id="loc-coords" style="font-size:0.8125rem">—</div></div>
+            <div><div class="card-label">Heading</div><div class="card-value sm" id="loc-heading">—</div></div>
+            <div><div class="card-label">Speed</div><div class="card-value sm" id="loc-speed">—</div></div>
+            <div><div class="card-label">Gear</div><div class="card-value sm" id="loc-shift">—</div></div>
+          </div>
+        </div>
+      </section>
+      <section id="section-history" class="section" aria-label="History">
+        <p class="section-title">Recent</p>
+        <ul class="history-list" id="history-list"></ul>
+      </section>
     </main>
-    <nav class="nav" aria-label="Main"><div class="nav-inner" id="nav-inner"></div></nav>
+    <nav class="nav" aria-label="Main">
+      <div class="nav-inner">
+        <button type="button" class="nav-btn active" data-section="overview" aria-label="Overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Home</button>
+        <button type="button" class="nav-btn" data-section="charge" aria-label="Charge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Charge</button>
+        <button type="button" class="nav-btn" data-section="climate" aria-label="Climate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4M3 12h18"/></svg>Climate</button>
+        <button type="button" class="nav-btn" data-section="security" aria-label="Security"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security</button>
+        <button type="button" class="nav-btn" data-section="software" aria-label="Software"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>Soft</button>
+        <button type="button" class="nav-btn" data-section="location" aria-label="Location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Loc</button>
+        <button type="button" class="nav-btn" data-section="history" aria-label="History"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>History</button>
+      </div>
+    </nav>
   </div>
   <script src="js/app.js"></script>
 </body>
